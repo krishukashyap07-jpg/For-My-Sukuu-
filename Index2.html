@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Promise Day 💖</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background: linear-gradient(to bottom, #ff9acb, #ffe6f2);
+    font-family: 'Segoe UI', sans-serif;
+    text-align:center;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#b30059;
+}
+
+.box{
+    background:white;
+    padding:40px 25px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,0,100,0.3);
+    max-width:350px;
+    cursor:pointer;
+}
+
+.title{
+    font-size:24px;
+    color:#ff0066;
+    font-weight:bold;
+}
+
+.tap{
+    margin-top:10px;
+    font-size:18px;
+    color:#cc0052;
+}
+
+.msg{
+    margin-top:20px;
+    font-size:20px;
+    min-height:80px;
+}
+
+/* Hearts */
+.heart{
+    position:fixed;
+    font-size:20px;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    0%{bottom:-20px;opacity:1;}
+    100%{bottom:100%;opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box" onclick="nextPromise()">
+
+<div class="title">
+💝 Happy Promise Day My Wife💝
+</div>
+
+<div class="tap" id="tapText">
+👉 Tap Here 💖
+</div>
+
+<div class="msg" id="message">
+</div>
+
+</div>
+
+<script>
+
+let count = 0;
+
+let promises = [
+
+"💗 I promise ki mai hmesha aapke sath rhunga😚🫂 ❤️",
+
+"😚🫂 I promise ki mai aapko thoda bhot predhan krunga😁🫂",
+
+"💞 I promise ki aapka bubuu hr situation me aapke sath rhega😚🫂",
+
+"🥰 I promise ki mai hmesha aapse pyaar krta rhunga, bina kisi expectations ke 😚🫂💕",
+
+"🫂 I promise ki mai aapki sari baatein maunga, aap pe kbhi bina bewjh gussa nhi krunga😚🫂"
+
+];
+
+function nextPromise(){
+
+    if(count < promises.length){
+
+        document.getElementById("tapText").innerText="Tap Again 💝";
+
+        document.getElementById("message").innerText = promises[count];
+
+        makeHeart();
+
+        count++;
+
+    }else{
+
+        document.getElementById("tapText").innerText="I Love Youuuuuuuuu love you love you love you love you love you love you love you love you love you love you love you love you love soooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo much mera pyaaraa sa bachaa😚😚🫂🫂";
+
+        document.getElementById("message").innerText="💍 Forever Yours my jaann 😚🫂";
+    }
+}
+
+/* Floating Heart */
+function makeHeart(){
+
+    let h = document.createElement("div");
+    h.className="heart";
+    h.innerText="💗";
+
+    h.style.left = Math.random()*100+"%";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>{
+        h.remove();
+    },5000);
+}
+
+</script>
+
+</body>
+</html>
